@@ -16,40 +16,44 @@ st.markdown(
 
 st.write("Welcome to the **central dashboard** for player monitoring, wellness, and recovery tracking. Choose one of the following sections:")
 
-# Botones grandes estilo tarjetas
+# Estilo botones en cuadrícula
 st.markdown("""
 <style>
-.button-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 500px;
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 30px;
+    max-width: 1000px;
 }
-
-.big-button {
-    display: block;
+.grid-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #f0f2f6;
-    border-radius: 8px;
-    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    padding: 2rem 1.5rem;
     text-decoration: none;
     color: black;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: bold;
     border: 1px solid #d0d0d0;
+    height: 120px;
     transition: all 0.2s ease;
+    text-align: center;
 }
-
-.big-button:hover {
+.grid-button:hover {
     background-color: #e0e0e0;
-    box-shadow: 0 0 6px rgba(0,0,0,0.1);
+    box-shadow: 0 0 8px rgba(0,0,0,0.12);
     cursor: pointer;
 }
 </style>
 
-<div class="button-container">
-    <a class="big-button" href="./Wellness">📊 Wellness Dashboard</a>
-    <a class="big-button" href="./Procedures">💆‍♂️ Physiotherapy Procedures</a>
-    <a class="big-button" href="./Calendar">📅 Individual Activity Calendar</a>
+<div class="grid-container">
+    <a class="grid-button" href="./Wellness">📊 Wellness Dashboard</a>
+    <a class="grid-button" href="./Procedures">💆‍♂️ Physiotherapy Procedures</a>
+    <a class="grid-button" href="./Calendar">📅 Individual Activity Calendar</a>
+    <a class="grid-button" href="./Weight_and_Fat">⚖️ Weight & Fat Tracking</a>
 </div>
 """, unsafe_allow_html=True)
 

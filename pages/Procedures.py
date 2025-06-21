@@ -3,6 +3,8 @@ import pandas as pd
 import datetime as dt
 import plotly.express as px
 
+st.set_page_config(layout="wide",page_icon="💆‍♂️")
+
 # Logo y titulo
 st.markdown(
     """
@@ -64,7 +66,18 @@ else:
         count_by_date = df_range.groupby("DATE").size().reset_index(name="Procedures")
         fig = px.bar(count_by_date, x="DATE", y="Procedures", text="Procedures")
         fig.update_traces(marker_color='lightblue', marker_line_width=1.2)
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(
+    fig,
+    use_container_width=True,
+    config={
+        "displayModeBar": True,
+        "displaylogo": False,
+        "modeBarButtonsToRemove": [
+            "zoom", "pan", "select", "zoomIn", "zoomOut", "autoScale", "resetScale", "lasso"
+        ]
+    }
+)
+
 
         # 📋 Tabla total por jugador
         st.subheader("📋 Total Procedures per Player")

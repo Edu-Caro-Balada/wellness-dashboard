@@ -6,6 +6,8 @@ import datetime
 import plotly.express as px
 import plotly.graph_objects as go
 
+st.set_page_config(layout="wide",page_icon="🍃")
+
 # Función para cargar y procesar los datos
 @st.cache_data(ttl=300)
 def load_data():
@@ -99,7 +101,18 @@ with tab1:
                 showlegend=False,
                 margin=dict(t=30, b=30)
             )
-            st.plotly_chart(fig, use_container_width=True)
+            st.plotly_chart(
+    fig,
+    use_container_width=True,
+    config={
+        "displayModeBar": True,
+        "displaylogo": False,
+        "modeBarButtonsToRemove": [
+            "zoom", "pan", "select", "zoomIn", "zoomOut", "autoScale", "resetScale", "lasso"
+        ]
+    }
+)
+
 
         # Urine
         st.subheader("💧 Urine Color Alert ( > 4 )")
@@ -167,7 +180,17 @@ with tab2:
                     xaxis=dict(tickangle=-45, tickfont=dict(size=13)),
                     margin=dict(t=30, b=30)
                 )
-                st.plotly_chart(fig, use_container_width=True)
+                st.plotly_chart(
+    fig,
+    use_container_width=True,
+    config={
+        "displayModeBar": True,
+        "displaylogo": False,
+        "modeBarButtonsToRemove": [
+            "zoom", "pan", "select", "zoomIn", "zoomOut", "autoScale", "resetScale", "lasso"
+        ]
+    }
+)
 
             st.subheader("🦵 Muscle Pain Area Report")
             pain_zone = df_range[df_range["IF THE PREVIOUS ANSWER IS 1 OR 2. WHERE (LOW = L / MEDIUM = M /HIGH = H)"].notna()]

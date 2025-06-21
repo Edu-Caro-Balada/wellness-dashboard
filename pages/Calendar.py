@@ -5,7 +5,7 @@ from matplotlib.patches import FancyBboxPatch
 from matplotlib.lines import Line2D
 import datetime
 
-st.set_page_config(layout="wide")
+st.set_page_config(layout="wide",page_icon="📅")
 
 @st.cache_data(ttl=600)
 def load_calendar_data():
